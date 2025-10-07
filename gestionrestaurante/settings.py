@@ -3,6 +3,8 @@
 from pathlib import Path
 from decouple import config
 import os
+import dj_database_url 
+from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -65,15 +67,10 @@ WSGI_APPLICATION = 'gestionrestaurante.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DB_NAME'), 
-        'USER': config('DB_USER'), 
-        'PASSWORD': config('DB_PASSWORD'), 
-        'HOST': config('DB_HOST'), 
-        'PORT': config('DB_PORT'), 
-        # OPTIONS se elimina
-    }
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL'), # Ahora Django leerá esta nueva variable
+        conn_max_age=600 # Configuración opcional
+    )
 }
 
 
