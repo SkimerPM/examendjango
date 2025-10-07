@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Eliminar Restaurante{% endblock %}
+
+{% block content %}
+<div class="max-w-md mx-auto bg-white p-8 rounded-3xl shadow-neo-light text-center">
+    <h1 class="text-3xl font-bold text-secondary-red mb-4">Confirmar Eliminación</h1>
+    
+    <p class="mb-6 text-gray-700">
+        ¿Estás seguro que deseas eliminar el restaurante <strong>"{{ restaurante.nombre }}"</strong>?
+        Esta acción es irreversible y eliminará todos los platos asociados.
+    </p>
+
+    <form method="POST" class="space-y-4">
+        {% csrf_token %}
+        <button type="submit" class="w-full bg-secondary-red text-white px-6 py-3 rounded-xl shadow-neo-light hover:bg-primary-orange transition duration-300 font-semibold">
+            Sí, Eliminar Permanentemente
+        </button>
+        <a href="{% url 'restaurante_list' %}" class="inline-block w-full text-gray-600 bg-neutral-light border border-neutral-gray px-6 py-3 rounded-xl shadow-neo-light hover:shadow-md transition duration-300">
+            Cancelar
+        </a>
+    </form>
+</div>
+{% endblock %}

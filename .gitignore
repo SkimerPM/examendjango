@@ -1,0 +1,26 @@
+# ------------------------------------------
+# 1. DEPENDENCIAS Y AMBIENTE VIRTUAL
+# ------------------------------------------
+env/
+venv/
+.vscode/
+
+
+.env
+settings/local.py
+*~
+*.log
+*.pot
+*.pyc
+__pycache__/
+
+*.sqlite3
+
+# Archivos estáticos recolectados (generados por collectstatic)
+staticfiles/
+
+
+media/
+
+.DS_Store # Mac
+Thumbs.db # Windows

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Gestor de Restaurantes{% endblock %}</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-orange': '#FF8C00', 
+                        'secondary-red': '#E94F37', 
+                        'accent-green': '#3B8267', 
+                        'neutral-light': '#F5F5F5',
+                        'neutral-gray': '#E0E0E0', 
+                    },
+                    boxShadow: {
+                        'neo-light': '5px 5px 10px #c4c4c4, -5px -5px 10px #ffffff',
+                        'neo-inset': 'inset 3px 3px 5px #c4c4c4, inset -3px -3px 5px #ffffff',
+                    }
+                }
+            }
+        }
+    </script>
+
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="bg-neutral-light min-h-screen font-sans antialiased text-gray-800">
+
+    <header class="bg-white shadow-md">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="{% url 'restaurante_list' %}" class="text-2xl font-bold text-primary-orange hover:text-secondary-red transition duration-300">
+                GestoRest
+            </a>
+            
+            <div class="space-x-4">
+                <a href="{% url 'restaurante_list' %}" class="text-gray-600 hover:text-secondary-red font-medium transition duration-300">
+                    Restaurantes
+                </a>
+                <a href="{% url 'plato_list' %}" class="text-gray-600 hover:text-secondary-red font-medium transition duration-300">
+                    Platos
+                </a>
+                <a href="{% url 'restaurante_create' %}" class="bg-primary-orange text-white px-4 py-2 rounded-lg shadow-md hover:bg-secondary-red transition duration-300">
+                    + Nuevo Restaurante
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-7xl mx-auto p-8">
+        {% block content %}
+        {% endblock %}
+    </main>
+    
+    <footer class="text-center py-4 text-gray-500 text-sm mt-10">
+        &copy; 2025 Gestor de Restaurantes. Desarrollado con Django y Tailwind por José Fabricio S.Q.
+    </footer>
+</body>
+</html>

@@ -1,0 +1,1 @@
+web: gunicorn gestionrestaurante.wsgi:application
